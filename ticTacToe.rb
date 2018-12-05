@@ -34,7 +34,6 @@ class Game
     def move_validity_check
         while !@board.change(@player_move.to_sym, @current_player.player) do
             puts "That is not a valid move."
-            @board.show
             puts "What is your move #{@current_player.player}?"
             @player_move = gets.chomp
             @board.change(@player_move, @current_player.player)
@@ -75,9 +74,9 @@ class Board
 
     def change position, turn
         if @board[position] == nil
-            return nil
+            return false
         elsif @board[position] == "|X|" || @board[position] == "|O|" 
-            return nil
+            return false
         else 
             @board[position] = "|#{turn}|"
         end
