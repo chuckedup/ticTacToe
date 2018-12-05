@@ -13,7 +13,12 @@ class Game
     def display_rules
         puts "Get three pieces in a row, horizontally, vertically or diagonally, to win. "
         puts "The postions are labelled alpha-numerically as such: "
-        @board.show
+        ('a'..'c').each do |letter|
+          (1..3).each do |num|
+            print "#{letter}#{num} "
+          end
+          puts
+        end
     end
 
     def moves
